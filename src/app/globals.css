@@ -1,0 +1,84 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --top-bar-col-one: #ebebeb;
+  --top-bar-col-two: #666666;
+  --top-bar-col-thr: #171717;
+  --gam-ove-col-one: #669404;
+  --gam-ove-col-two: #425285;
+  --gray-card-border: url('../../public/card-borders/light-gray-border.svg');
+  --yellow-card-border: url('../../public/card-borders/light-yellow-border.svg');
+  --red-card-border: url('../../public/card-borders/light-red-border.svg');
+  --green-card-border: url('../../public/card-borders/light-green-border.svg');
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --top-bar-col-one: #454545;
+    --top-bar-col-two: #a1a1a1;
+    --top-bar-col-thr: #eeeeee;
+    --gam-ove-col-one: #4C7005;
+    --gam-ove-col-two: #1A1AFF;
+    --gray-card-border: url('../../public/card-borders/dark-gray-border.svg');
+    --yellow-card-border: url('../../public/card-borders/dark-yellow-border.svg');
+    --red-card-border: url('../../public/card-borders/dark-red-border.svg');
+    --green-card-border: url('../../public/card-borders/dark-green-border.svg');
+  }
+}
+
+.light-theme {
+  --background: #ffffff;
+  --foreground: #171717;
+  --top-bar-col-one: #ebebeb;
+  --top-bar-col-two: #666666;
+  --top-bar-col-thr: #171717;
+  --gam-ove-col-one: #669404;
+  --gam-ove-col-two: #425285;
+  --gray-card-border: url('../../public/card-borders/light-gray-border.svg');
+  --yellow-card-border: url('../../public/card-borders/light-yellow-border.svg');
+  --red-card-border: url('../../public/card-borders/light-red-border.svg');
+  --green-card-border: url('../../public/card-borders/light-green-border.svg');
+}
+
+.dark-theme {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --top-bar-col-one: #454545;
+  --top-bar-col-two: #a1a1a1;
+  --top-bar-col-thr: #eeeeee;
+  --gam-ove-col-one: #4C7005;
+  --gam-ove-col-two: #1A1AFF;
+  --gray-card-border: url('../../public/card-borders/dark-gray-border.svg');
+  --yellow-card-border: url('../../public/card-borders/dark-yellow-border.svg');
+  --red-card-border: url('../../public/card-borders/dark-red-border.svg');
+  --green-card-border: url('../../public/card-borders/dark-green-border.svg');
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: 300px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}

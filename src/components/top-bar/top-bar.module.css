@@ -1,0 +1,62 @@
+.top-bar {
+  padding: 8px;
+  border: 1px solid var(--top-bar-col-one);
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.score {
+  width: 120px;
+  height: 40px;
+  padding: 3px;
+  border: 1px solid var(--top-bar-col-one);
+  border-radius: 5px;
+  font-size: medium;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-game {
+  width: 104px;
+  height: 40px;
+  padding: 3px;
+  color: var(--top-bar-col-two)!important;
+  border: 1px solid var(--top-bar-col-one);
+  border-radius: 99px;
+  font-size: medium;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: inherit;
+  color: inherit;
+}
+
+@media (width < 500) {
+  .top-bar {
+    padding: 4px;
+  }
+  .score {
+    transform: scale(0.9)
+  }
+  .new-game {
+    transform: scale(0.8)
+  }
+}
+
+@media (width < 400) {
+  .top-bar {
+    padding: 2px;
+  }
+  .score {
+    transform: scale(0.8)
+  }
+  .new-game {
+    width: 80px;
+    transform: scale(0.7)
+  }
+}
