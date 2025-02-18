@@ -5,11 +5,11 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCards, toggleMatch, toggleStatus, setColor }
   from '@/lib/features/game/cardsSlice';
-import type { CardObjectType } from '@/types';
+import type { CardObjeType } from '@/types/CardObjeType';
 import { selectScore, setScore, setFirstOpen, setMatchNumber }
   from '@/lib/features/scoreSlice';
 import { AppDispatch } from '@/lib/store';
-import CardImage from '../../../public/card-images/cardImages';
+import CardImage from '../../utils/CardImage';
 import GameOver from './game-over';
 
 export function Game() {
@@ -24,10 +24,10 @@ export function Game() {
   const [isClickable, setIsClickable] = useState<boolean>(true);
 
   // waiting for client side render
-  if (!isClient) { return null };
+  if (!isClient) return;
 
-  const handleClick = (entity: CardObjectType) => {
-    if (entity.status || entity.match || !isClickable) return null;
+  const handleClick = (entity: CardObjeType) => {
+    if (entity.status || entity.match || !isClickable) return;
     if (firstOpen[0] === 'name') {
       dispatch(toggleStatus(entity.id));
       dispatch(setColor([entity.id, 'yellow-border']));
@@ -59,7 +59,7 @@ export function Game() {
   }
 
   return (
-    <main className={styles.game}>
+    <div className={styles.game}>
       {ids.map(id => <div key={id}
         className={`${styles.card} ${styles[entities[id].color]}`}
         onClick={() => {handleClick(entities[id])}}
@@ -67,12 +67,12 @@ export function Game() {
         <div className={styles['card-image']}>
         <div className={styles['hide-the-corner']}></div>
           {(entities[id].status || entities[id].match) &&
-            CardImage(entities[id].name)
+          <CardImage name={entities[id].name} />
           }
         </div>
       </div>)}
       {matchNumber === 15 && <GameOver />}
-    </main>
+    </div>
   )
 }
 

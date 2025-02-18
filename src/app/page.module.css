@@ -1,6 +1,5 @@
 .container {
   margin-top: 30px!important;
-  width: 100%;
   max-width: 624px;
   margin: 0 auto;
   padding: 0 12px;
@@ -17,14 +16,5 @@
   }
   .heading {
     font-size: 24px;
-  }
-}
-
-@media (width < 400px) {
-  .container {
-    padding: 0 6px;
-  }
-  .heading {
-    font-size: 20px;
   }
 }

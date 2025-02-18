@@ -17,7 +17,7 @@ export const scoreSlice = createSlice({
     },
     setMatchNumber: (state, action: PayloadAction<number>) => {
       state.matchNumber = action.payload;
-    },
+    }
   }
 })
 

@@ -17,10 +17,6 @@ typescript
 <br>Jun 2025
 <br><https://www.typescriptlang.org/download/>
 
-Sample project
-<br>Jun 2025
-<br><https://codepen.io/yigitcukuren/pen/GyxxVm>
-
 Fruits flat vectors collection 
 <br>Jun 2025
 <br><https://www.svgrepo.com/collection/fruits-flat-vectors/>

@@ -1,5 +1,5 @@
 import eneIcoArr from './energyIconsArray';
-import { CardObjectType, CardObjectsType } from '@/types';
+import type { CardObjeType } from '@/types/CardObjeType';
 import { nanoid, PayloadAction } from '@reduxjs/toolkit';
 import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
 import type { RootState } from '@/lib/store';
@@ -14,8 +14,8 @@ function shuffle(arr: string[]): string[] {
   return array;
 }
 
-function generateCards(shuffledCards: string[]): CardObjectsType {
-  return shuffledCards.reduce<CardObjectsType>(
+function generateCards(shuffledCards: string[]): CardObjeType[] {
+  return shuffledCards.reduce<CardObjeType[]>(
     (acc, cur) => {
       acc.push({
         name: cur,
@@ -32,7 +32,7 @@ function generateCards(shuffledCards: string[]): CardObjectsType {
 const shuffledCards = shuffle(eneIcoArr);
 const cards = generateCards(shuffledCards);
 
-const cardAdaptor = createEntityAdapter<CardObjectType>();
+const cardAdaptor = createEntityAdapter<CardObjeType>();
 const initialState = cardAdaptor.setAll(
   cardAdaptor.getInitialState(), cards
 );

@@ -42,21 +42,3 @@ input:checked + .switch-icon {
     transform: scale(0.8)
   }
 }
-
-@media (width < 400) {
-  .theme-switcher {
-    transform: scale(1);
-    width: 78px;
-    height: 28px;
-    padding: 2px;
-  }
-  .switch {
-    width: 22px;
-    height: 22px;
-    padding: 3px 4px 7px 6px;
-  }
-  .switch-icon {
-    width: 11px;
-    height: 11px;
-  }
-}

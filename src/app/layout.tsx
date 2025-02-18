@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import App from "@/components/App";
+import App from "@/app/StoreProvider";
 
 export const metadata: Metadata = {
   title: "Find the Matches",
   icons: {
-    icon: 'cherries-fruit.svg'
+    icon: '/cherries-fruit.svg'
   }
 }
 

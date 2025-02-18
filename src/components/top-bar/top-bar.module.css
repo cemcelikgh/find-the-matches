@@ -47,16 +47,3 @@
     transform: scale(0.8)
   }
 }
-
-@media (width < 400) {
-  .top-bar {
-    padding: 2px;
-  }
-  .score {
-    transform: scale(0.8)
-  }
-  .new-game {
-    width: 80px;
-    transform: scale(0.7)
-  }
-}
