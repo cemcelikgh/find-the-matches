@@ -1,4 +1,4 @@
-const energyIconsArray = [
+const fruitArray = [
   'apple',
   'apricot',
   'avacado',
@@ -13,7 +13,7 @@ const energyIconsArray = [
   'orange',
   'pear',
   'pineapple',
-  'strawberry'
+  'strawberry',
 ];
 
-export default energyIconsArray;
+export default fruitArray;

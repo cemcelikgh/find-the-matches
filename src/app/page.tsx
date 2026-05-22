@@ -1,8 +1,8 @@
 import styles from "./page.module.css";
-import Game from "@/components/game";
-import TopBar from "@/components/top-bar";
+import Game from "@/components/game/Game";
+import TopBar from "@/components/top-bar/TopBar";
 
-export default function Home() {
+function Home() {
   return (
     <main className={styles.container}>
       <h1 className={styles.heading}>
@@ -13,3 +13,5 @@ export default function Home() {
     </main>
   );
 }
+
+export default Home;

@@ -1,21 +1,21 @@
-import eneIcoArr from './energyIconsArray';
-import type { CardObjeType } from '@/types/CardObjeType';
-import { nanoid, PayloadAction } from '@reduxjs/toolkit';
-import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
+import fruits from './fruits';
+import type { CardObjeType } from '@/types/types';
+import {createEntityAdapter, createSlice, nanoid, PayloadAction }
+  from "@reduxjs/toolkit";
 import type { RootState } from '@/lib/store';
 
 //  Fisher-Yates algorithm
-function shuffle(arr: string[]): string[] {
+function shuffleFruits(arr: string[]): string[] {
   const array = [...arr, ...arr];
   for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
-  }
+  };
   return array;
-}
+};
 
-function generateCards(shuffledCards: string[]): CardObjeType[] {
-  return shuffledCards.reduce<CardObjeType[]>(
+function generateCards(shuffledFruits: string[]) {
+  return shuffledFruits.reduce<CardObjeType[]>(
     (acc, cur) => {
       acc.push({
         name: cur,
@@ -26,16 +26,16 @@ function generateCards(shuffledCards: string[]): CardObjeType[] {
       });
       return acc;
     },
-  []);
-}
+    []
+  );
+};
 
-const shuffledCards = shuffle(eneIcoArr);
-const cards = generateCards(shuffledCards);
+const shuffledFruits = shuffleFruits(fruits);
+const cards = generateCards(shuffledFruits);
 
-const cardAdaptor = createEntityAdapter<CardObjeType>();
-const initialState = cardAdaptor.setAll(
-  cardAdaptor.getInitialState(), cards
-);
+const cardsAdapter = createEntityAdapter<CardObjeType>();
+const cardsInitialShape = cardsAdapter.getInitialState();
+const initialState = cardsAdapter.setAll(cardsInitialShape, cards);
 
 export const cardsSlice = createSlice({
   name: 'cards',
@@ -54,15 +54,13 @@ export const cardsSlice = createSlice({
       state.entities[id].color = color;
     },
     newGame: (state) => {
-      const newShuffledCards = shuffle(eneIcoArr);
-      const newCards = generateCards(newShuffledCards);
-      cardAdaptor.setAll(state, newCards);
-    }
-  }
-})
+      const newShuffledFruits = shuffleFruits(fruits);
+      const newCards = generateCards(newShuffledFruits);
+      cardsAdapter.setAll(state, newCards);
+    },
+  },
+});
 
 export const { toggleStatus, toggleMatch, setColor, newGame } = cardsSlice.actions;
-
 export const selectCards = (state: RootState) => state.cards;
-
 export default cardsSlice.reducer;
