@@ -17,12 +17,10 @@ export const scoreSlice = createSlice({
     },
     setMatchNumber: (state, action: PayloadAction<number>) => {
       state.matchNumber = action.payload;
-    }
-  }
-})
+    },
+  },
+});
 
 export const { setScore, setFirstOpen, setMatchNumber } = scoreSlice.actions;
-
 export const selectScore = (state: RootState) => state.score;
-
 export default scoreSlice.reducer;

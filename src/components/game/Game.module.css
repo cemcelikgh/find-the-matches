@@ -29,13 +29,13 @@
   border-image-source: var(--green-card-border);
 }
 
-.hide-the-corner {
+/* .hide-the-corner {
   position: absolute;
   width: 15%;
   height: 15%;
   background-color: var(--background);
   z-index: 2;
-}
+} */
 
 .card-image {
   position: absolute;
