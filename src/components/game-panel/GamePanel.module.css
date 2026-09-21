@@ -1,0 +1,33 @@
+.game-panel {
+  padding: 8rem;
+  border: var(--border);
+  border-radius: 5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.new-game-btn {
+  width: 104rem;
+  height: 40rem;
+  padding: 3rem;
+  color: var(--foreground);
+  background-color: var(--background);
+  border: var(--border);
+  border-radius: 99rem;
+  font-size: medium;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+@media (width < 500px) {
+  .game-panel {
+    padding: 4rem;
+  }
+  .new-game-btn {
+    transform: scale(0.8)
+  }
+}

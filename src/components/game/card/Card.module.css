@@ -1,0 +1,27 @@
+.card {
+  width: calc((100% - 40rem) / 5);
+  aspect-ratio: 1;
+  cursor: pointer;
+  user-select: none;
+  border: 8em solid;
+  border-image-slice: 1 fill;
+}
+.gray-border {
+  border-image-source: var(--gray-border-image-source);
+}
+.yellow-border {
+  border-image-source: var(--yellow-border-image-source);
+}
+.red-border {
+  border-image-source: var(--red-border-image-source);
+}
+.green-border {
+  border-image-source: var(--green-border-image-source);
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  background-color: var(--background);
+  position: relative;
+}

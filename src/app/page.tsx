@@ -1,6 +1,6 @@
-import styles from "./page.module.css";
 import Game from "@/components/game/Game";
-import TopBar from "@/components/top-bar/TopBar";
+import GamePanel from "@/components/game-panel/GamePanel";
+import styles from "./page.module.css";
 
 function Home() {
   return (
@@ -8,7 +8,7 @@ function Home() {
       <h1 className={styles.heading}>
         Find the Matches
       </h1>
-      <TopBar />
+      <GamePanel />
       <Game />
     </main>
   );

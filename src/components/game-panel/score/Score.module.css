@@ -1,0 +1,18 @@
+.score {
+  width: 120rem;
+  height: 40rem;
+  padding: 3rem;
+  border: var(--border);
+  border-radius: 5rem;
+  font-size: medium;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (width < 500px) {
+  .score {
+    transform: scale(0.9)
+  }
+}

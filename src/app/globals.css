@@ -1,30 +1,32 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --top-bar-col-one: #ebebeb;
-  --top-bar-col-two: #666666;
-  --top-bar-col-thr: #171717;
-  --gam-ove-col-one: #669404;
-  --gam-ove-col-two: #425285;
-  --gray-card-border: url('/images/card-borders/light-gray-border.svg');
-  --yellow-card-border: url('/images/card-borders/light-yellow-border.svg');
-  --red-card-border: url('/images/card-borders/light-red-border.svg');
-  --green-card-border: url('/images/card-borders/light-green-border.svg');
+  --switch-icon: #666666;
+  --checked-switch: #171717;
+  --checked-switch-bg: #ebebeb;
+  --border: 1rem solid #ebebeb;
+  --high-transparent-bg: rgba(23, 23, 23, .1);
+  --low-transparent-bg: rgba(255, 255, 255, .9);
+  --gray-border-image-source: url('/border-images/light-gray.svg');
+  --yellow-border-image-source: url('/border-images/light-yellow.svg');
+  --red-border-image-source: url('/border-images/light-red.svg');
+  --green-border-image-source: url('/border-images/light-green.svg');
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
-    --top-bar-col-one: #454545;
-    --top-bar-col-two: #a1a1a1;
-    --top-bar-col-thr: #eeeeee;
-    --gam-ove-col-one: #4C7005;
-    --gam-ove-col-two: #1A1AFF;
-    --gray-card-border: url('/images/card-borders/dark-gray-border.svg');
-    --yellow-card-border: url('/images/card-borders/dark-yellow-border.svg');
-    --red-card-border: url('/images/card-borders/dark-red-border.svg');
-    --green-card-border: url('/images/card-borders/dark-green-border.svg');
+    --switch-icon: #a1a1a1;
+    --checked-switch: #eeeeee;
+    --checked-switch-bg: #454545;
+    --border: 1rem solid #454545;
+    --high-transparent-bg: rgba(237, 237, 237, .1);
+    --low-transparent-bg: rgba(10, 10, 10, .9);
+    --gray-border-image-source: url('/border-images/dark-gray.svg');
+    --yellow-border-image-source: url('/border-images/dark-yellow.svg');
+    --red-border-image-source: url('/border-images/dark-red.svg');
+    --green-border-image-source: url('/border-images/dark-green.svg');
   }
 }
 
@@ -35,6 +37,7 @@
 }
 
 html {
+  font-size: 6.25%;
   color-scheme: light dark;
 }
 
@@ -45,7 +48,7 @@ body {
 }
 
 body {
-  min-width: 400px;
+  min-width: 400rem;
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
@@ -56,27 +59,29 @@ body {
 .light {
   --background: #ffffff;
   --foreground: #171717;
-  --top-bar-col-one: #ebebeb;
-  --top-bar-col-two: #666666;
-  --top-bar-col-thr: #171717;
-  --gam-ove-col-one: #669404;
-  --gam-ove-col-two: #425285;
-  --gray-card-border: url('/images/card-borders/light-gray-border.svg');
-  --yellow-card-border: url('/images/card-borders/light-yellow-border.svg');
-  --red-card-border: url('/images/card-borders/light-red-border.svg');
-  --green-card-border: url('/images/card-borders/light-green-border.svg');
+  --switch-icon: #666666;
+  --checked-switch: #171717;
+  --checked-switch-bg: #ebebeb;
+  --border: 1rem solid #ebebeb;
+  --high-transparent-bg: rgba(23, 23, 23, .1);
+  --low-transparent-bg: rgba(255, 255, 255, .9);
+  --gray-border-image-source: url('/border-images/light-gray.svg');
+  --yellow-border-image-source: url('/border-images/light-yellow.svg');
+  --red-border-image-source: url('/border-images/light-red.svg');
+  --green-border-image-source: url('/border-images/light-green.svg');
 }
 
 .dark {
   --background: #0a0a0a;
   --foreground: #ededed;
-  --top-bar-col-one: #454545;
-  --top-bar-col-two: #a1a1a1;
-  --top-bar-col-thr: #eeeeee;
-  --gam-ove-col-one: #4C7005;
-  --gam-ove-col-two: #1A1AFF;
-  --gray-card-border: url('/images/card-borders/dark-gray-border.svg');
-  --yellow-card-border: url('/images/card-borders/dark-yellow-border.svg');
-  --red-card-border: url('/images/card-borders/dark-red-border.svg');
-  --green-card-border: url('/images/card-borders/dark-green-border.svg');
+  --switch-icon: #a1a1a1;
+  --checked-switch: #eeeeee;
+  --checked-switch-bg: #454545;
+  --border: 1rem solid #454545;
+  --high-transparent-bg: rgba(237, 237, 237, .1);
+  --low-transparent-bg: rgba(10, 10, 10, .9);
+  --gray-border-image-source: url('/border-images/dark-gray.svg');
+  --yellow-border-image-source: url('/border-images/dark-yellow.svg');
+  --red-border-image-source: url('/border-images/dark-red.svg');
+  --green-border-image-source: url('/border-images/dark-green.svg');
 }

@@ -1,9 +1,16 @@
+import fruits from "@/data/fruits";
+
 export type Theme = 'light' | 'dark';
 
-export interface Cards {
-  name: string;
+type Fruit = typeof fruits[number];
+
+export type Fruits = Fruit[];
+
+type Border =  'gray-border' | 'yellow-border' | 'red-border' | 'green-border';
+
+export interface Card {
+  fruitName: Fruit;
   id: string;
-  status: boolean;
-  match: boolean;
-  color: string;
-};
+  border: Border;
+  isOpen: boolean;
+}

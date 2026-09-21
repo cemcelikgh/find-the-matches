@@ -1,0 +1,44 @@
+.theme-switcher {
+  width: 104rem;
+  height: 40rem;
+  padding: 3rem;
+  border: var(--border);
+  border-radius: 99rem;
+}
+
+.switch {
+  display: inline-block;
+  width: 32rem;
+  height: 32rem;
+  padding: 8rem;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+
+.switch:has(input:checked) {
+  background-color: var(--checked-switch-bg);
+}
+
+.switch-icon {
+  width: 16rem;
+  height: 16rem;
+  fill: var(--switch-icon);
+}
+
+input:checked + .switch-icon {
+  fill: var(--checked-switch);
+}
+
+.option {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+@media (width < 500px) {
+  .theme-switcher {
+    transform: scale(0.8)
+  }
+}
