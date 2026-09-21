@@ -16,15 +16,17 @@ function Card({ id }: { id: string; }) {
       className={`${styles.card} ${styles[card.border]}`}
       onClick={ () => { dispatch(openCard(id)) } }
     >
-      <div className={styles['card-image']}>
+      <div className={styles.image}>
         {card.isOpen &&
         <Image
+          className={card.isOpen ? styles.visible : styles.hidden}
           src={`/fruits/${card.fruitName}.svg`}
-          style={{ objectFit: 'contain' }}
+          style={{ objectFit: "contain" }}
           fill
-          sizes='100%'
+          sizes="100%"
           loading="eager"
-          alt={card.fruitName}
+          alt={card.isOpen ? card.fruitName : ""}
+          aria-hidden={!card.isOpen}
         />}
       </div>
     </div>
