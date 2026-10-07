@@ -5,6 +5,7 @@
   user-select: none;
   border: 8em solid;
   border-image-slice: 1 fill;
+  contain: layout paint;
 }
 .gray-border {
   border-image-source: var(--gray-border-image-source);
@@ -19,9 +20,19 @@
   border-image-source: var(--green-border-image-source);
 }
 
-.card-image {
+.image {
   width: 100%;
   height: 100%;
   background-color: var(--background);
   position: relative;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
 }
