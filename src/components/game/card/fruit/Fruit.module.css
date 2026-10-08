@@ -1,0 +1,19 @@
+.image {
+  width: 86%;
+  height: 86%;
+  top: 7%;
+  left: 7%;
+  border: none;
+  background-color: var(--background);
+  position: relative;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+}

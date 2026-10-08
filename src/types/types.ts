@@ -12,5 +12,4 @@ export interface Card {
   fruitName: Fruit;
   id: string;
   border: Border;
-  isOpen: boolean;
 }
