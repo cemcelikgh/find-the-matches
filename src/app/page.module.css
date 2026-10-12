@@ -1,18 +1,18 @@
 .container {
   max-width: 624rem;
-  margin: 30rem auto 0;
-  padding: 0 12rem;
+  margin: 0 auto ;
+  padding: 30rem 12rem 0;
 }
 
 .heading {
+  margin: 0 auto 15rem;
   font-size: 32rem;
   text-align: center;
-  margin: 0 auto 15rem;
 }
 
 @media (width < 500px) {
   .container {
-    padding: 0 9rem;
+    padding: 21rem 9rem 0;
   }
   .heading {
     font-size: 24rem;

@@ -35,7 +35,6 @@ export const gameSlice = createSlice({
     },
     openFirstCard: (state, action: PayloadAction<string>) => {
       const card = state.cards.entities[action.payload];
-      card.isOpen = true;
       card.border = 'yellow-border';
       state.cardOpenings.firstOpenedCard = card;
     },
@@ -44,7 +43,6 @@ export const gameSlice = createSlice({
       const cardOpenings = state.cardOpenings;
       const firstOpenedCard = state.cards.entities[cardOpenings.firstOpenedCard!.id];
       cardOpenings.cannotOpen = true;
-      card.isOpen = true;
       card.border = 'red-border';
       firstOpenedCard.border = 'red-border';
       state.score.score -= 10;
@@ -53,10 +51,8 @@ export const gameSlice = createSlice({
       const card = state.cards.entities[action.payload];
       const cardOpenings = state.cardOpenings;
       const firstOpenedCard = state.cards.entities[cardOpenings.firstOpenedCard!.id];
-      firstOpenedCard.isOpen = false;
       firstOpenedCard.border = 'gray-border';
       cardOpenings.firstOpenedCard = null;
-      card.isOpen = false;
       card.border = 'gray-border';
       cardOpenings.cannotOpen = false;
     },
@@ -65,7 +61,6 @@ export const gameSlice = createSlice({
       const cardOpenings = state.cardOpenings;
       const firstOpenedCard = state.cards.entities[cardOpenings.firstOpenedCard!.id];
       const gameScore = state.score;
-      card.isOpen = true;
       card.border = 'green-border';
       firstOpenedCard.border = 'green-border';
       cardOpenings.firstOpenedCard = null;
@@ -102,7 +97,7 @@ export function openCard(id: string) {
     const card = state.game.cards.entities[id];
     const cardOpenings = state.game.cardOpenings;
 
-    if (card.isOpen || cardOpenings.cannotOpen) return;
+    if (card.border !== 'gray-border' || cardOpenings.cannotOpen) return;
 
     if (cardOpenings.firstOpenedCard === null) {
       dispatch(openFirstCard(id));

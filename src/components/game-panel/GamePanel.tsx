@@ -3,9 +3,9 @@
 import { setIsNewGameConModalOpen }
   from '@/lib/features/game-slice/gameSlice';
 import { useAppDispatch } from '@/lib/hooks';
-import ThemeSelector from
-  '@/utils/theme-selector/ThemeSelector';
 import Score from './score/Score';
+import ThemeSelector
+  from './theme-selector/ThemeSelector';
 import styles from './GamePanel.module.css';
 
 function GamePanel() {

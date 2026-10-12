@@ -24,13 +24,12 @@ function generateCards(shuffledFruits: Fruits): Card[] {
     fruitName: fruit,
     id: nanoid(),
     border: 'gray-border',
-    isOpen: false,
   }));
 }
 
 function useShuffleCards() {
 
-  const resetTrigger = useAppSelector(selectResetTrigger);
+  const reset = useAppSelector(selectResetTrigger);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -39,7 +38,7 @@ function useShuffleCards() {
     const cardsInitialShape = cardsAdapter.getInitialState();
     const cardsState = cardsAdapter.setAll(cardsInitialShape, cards);
     dispatch(setCards(cardsState));
-  }, [resetTrigger, dispatch]);
+  }, [reset, dispatch]);
 
 }
 

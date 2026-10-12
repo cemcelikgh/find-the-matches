@@ -11,30 +11,26 @@ import styles from './ThemeSelector.module.css';
 
 function ThemeSelector() {
 
-  const [check, setCheck] = useState([false, true, false]);
+  const [check, setCheck] = useState([false, false, true]);
+  const isSystemTheme = check[1];
   const prefersColorSchemeRef = useRef<Theme>(null);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
 
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: light)');
-    prefersColorSchemeRef.current = mediaQuery.matches ? 'light' : 'dark';
+    const mediaQueryList = window.matchMedia('(prefers-color-scheme: light)');
+    prefersColorSchemeRef.current = mediaQueryList.matches ? 'light' : 'dark';
 
     function changeHandler(event: MediaQueryListEvent) {
-      const mode = event.matches ? 'light' : 'dark';
-      prefersColorSchemeRef.current = mode;
-      if (check[1]) dispatch(setTheme(mode));
+      const theme = event.matches ? 'light' : 'dark';
+      prefersColorSchemeRef.current = theme;
+      if (isSystemTheme) dispatch(setTheme(theme));
     }
 
-    mediaQuery.addEventListener('change', changeHandler);
-    return () => { mediaQuery.removeEventListener('change', changeHandler) };
+    mediaQueryList.addEventListener('change', changeHandler);
+    return () => { mediaQueryList.removeEventListener('change', changeHandler) };
 
-  }, [check[1], dispatch]);
-
-  function handleSetTheme(theme: Theme | null) {
-    if (theme === 'light') dispatch(setTheme('light'));
-    else  dispatch(setTheme('dark'));
-  };
+  }, [isSystemTheme, dispatch]);
 
   return (
     <fieldset className={styles['theme-switcher']}>
@@ -50,7 +46,7 @@ function ThemeSelector() {
           value='light'
           checked={check[0]}
           onChange={() => {
-            handleSetTheme('light');
+            dispatch(setTheme('light'));
             setCheck([true, false, false]);
           }}
         />
@@ -68,8 +64,10 @@ function ThemeSelector() {
           value='system'
           checked={check[1]}
           onChange={() => {
-            handleSetTheme(prefersColorSchemeRef.current);
-            setCheck([false, true, false]);
+            if(prefersColorSchemeRef.current) {
+              dispatch(setTheme(prefersColorSchemeRef.current));
+              setCheck([false, true, false]);
+            }
           }}
         />
         <DisplaySolid className={styles['switch-icon']} />
@@ -86,7 +84,7 @@ function ThemeSelector() {
           value='dark'
           checked={check[2]}
           onChange={() => {
-            handleSetTheme('dark');
+            dispatch(setTheme('dark'));
             setCheck([false, false, true]);
           }}
         />
