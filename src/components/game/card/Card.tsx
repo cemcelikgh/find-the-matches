@@ -2,31 +2,35 @@
 
 import { openCard, selectCard }
   from "@/lib/features/game-slice/gameSlice";
-import { selectTheme } from "@/lib/features/themeSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-import Fruit from "./fruit/Fruit";
 import Image from "next/image";
 import styles from './Card.module.css';
 
 function Card({ id }: { id: string }) {
 
   const card = useAppSelector(selectCard(id));
-  const theme = useAppSelector(selectTheme);
   const dispatch = useAppDispatch();
+
+  const isCardOpen = card.border !== "gray-border";
 
   return (
     <div
-      className={styles.card}
+      className={`${styles.card} ${styles[card.border]}`}
       onClick={ () => { dispatch(openCard(id)) } }
     >
-      <Image
-        src={`/border-images/${theme}-${card.border}.png`}
-        fill
-        sizes="(max-width: 500px) calc((100vw - 58px) / 5), 112px"
-        loading="eager"
-        alt={card.border}
-      />
-      <Fruit card={card} />
+      <div className={styles.image}>
+        {isCardOpen &&
+        <Image
+          className={isCardOpen ? styles.visible : styles.hidden}
+          src={`/fruits/${card.fruitName}.svg`}
+          fill
+          sizes="(max-width: 500rem) calc((100vw - 138rem) / 5), 96rem"
+          style={{ objectFit: "contain" }}
+          loading="eager"
+          alt={isCardOpen ? card.fruitName : ""}
+          aria-hidden={!isCardOpen}
+        />}
+      </div>
     </div>
   );
 

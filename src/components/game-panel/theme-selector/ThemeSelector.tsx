@@ -11,7 +11,7 @@ import styles from './ThemeSelector.module.css';
 
 function ThemeSelector() {
 
-  const [check, setCheck] = useState([false, false, true]);
+  const [check, setCheck] = useState([false, true, false]);
   const isSystemTheme = check[1];
   const prefersColorSchemeRef = useRef<Theme>(null);
   const dispatch = useAppDispatch();
@@ -22,10 +22,10 @@ function ThemeSelector() {
     prefersColorSchemeRef.current = mediaQueryList.matches ? 'light' : 'dark';
 
     function changeHandler(event: MediaQueryListEvent) {
-      const theme = event.matches ? 'light' : 'dark';
-      prefersColorSchemeRef.current = theme;
-      if (isSystemTheme) dispatch(setTheme(theme));
-    }
+      const mode = event.matches ? 'light' : 'dark';
+      prefersColorSchemeRef.current = mode;
+      if (isSystemTheme) dispatch(setTheme(mode));
+    };
 
     mediaQueryList.addEventListener('change', changeHandler);
     return () => { mediaQueryList.removeEventListener('change', changeHandler) };
